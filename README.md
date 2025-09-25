@@ -47,7 +47,7 @@ Mạng CNN được thiết kế theo sơ đồ trên với các bước:
 
 
 
-## 🛠️ Công nghệ sử dụng
+## 🛠️ Thư viện sử dụng
 - Ngôn ngữ lập trình: **C**
 - Thư viện chuẩn: `<stdio.h>`, `<stdlib.h>`, `<math.h>`, `<string.h>`, `<time.h>`, `<stdint.h>`
 
@@ -60,4 +60,8 @@ gcc main.c -o cnn -lm
 
 # Chạy chương trình
 ./cnn
+
+## 🚀 Kết quả
+![Kết quả](https://github.com/ducsuibot/Implement-a-Convolutional-Neural-Network-in-C/blob/main/result.png?raw=true)
+
 
