@@ -1,87 +1,62 @@
-🧠 CNN Implementation in C from Scratch
-📌 Introduction
-This project implements a Convolutional Neural Network (CNN) from the ground up using the C programming language, without relying on pre-built deep learning libraries like TensorFlow or PyTorch. The primary goals are:
+# CNN triển khai bằng ngôn ngữ C 
 
-Gain a deep understanding of CNN operations at a low level.
-Build the entire pipeline, from forward propagation to classification, manually.
-Experiment with the handwritten digit recognition task using the MNIST dataset (28x28 grayscale images, 10 classes).
+## 📌 Giới thiệu
+Dự án này triển khai một **Mạng Nơ-ron Tích chập (Convolutional Neural Network - CNN)** từ đầu bằng ngôn ngữ **C** mà **không sử dụng thư viện học sâu (deep learning library)**.  
+Mục tiêu chính: xây dựng mô hình CNN cơ bản để nhận diện ảnh kích thước **28x28** (ví dụ MNIST - chữ số viết tay).  
 
-⚙️ Model Architecture
-The implemented CNN follows the architecture depicted below:
+---
 
-The layers are:
+## 🖼️ Sơ đồ kiến trúc CNN
 
-Input Layer: 28×28×1 input image.
-Convolution Layer 1: 5×5 kernel, stride 1, output 24×24×2 → ReLU activation.
-MaxPooling Layer 1: 2×2 kernel → output 12×12×2.
-Convolution Layer 2: 3×3 kernel, 4 filters → output 10×10×4 → Sigmoid activation.
-MaxPooling Layer 2: 2×2 kernel → output 5×5×4.
-Flatten Layer: Converts 5×5×4 tensor to a 100-dimensional vector.
-Fully Connected Layer:
-100 nodes → 10 nodes.
-Activation function: Softmax.
+![CNN Architecture](cnn-architecture.jpeg)
 
+---
 
-Output: Predicts digits from 0–9.
+## ⚙️ Kiến trúc mô hình
+Mạng CNN được thiết kế theo sơ đồ trên với các bước:
 
-📂 Directory Structure
-├── src/
-│   ├── cnn.c          # CNN implementation
-│   ├── layers.c       # Layer implementations: conv, pooling, fc
-│   ├── utils.c        # Utility functions: data loading, weight initialization
-│   └── main.c         # Main program
-├── data/
-│   └── mnist/         # MNIST dataset (.idx format)
-├── include/
-│   └── *.h            # Header files
-└── README.md
+1. **Input Layer**  
+   - Kích thước: `28x28x1` (ảnh xám)
 
-🚀 How to Run
+2. **Convolutional Layer 1**  
+   - 2 filter kích thước `5x5`  
+   - Kết quả: `24x24x2`  
+   - Activation: **ReLU**
 
-Clone the repository:
+3. **MaxPooling Layer 1**  
+   - Kích thước kernel: `2x2`  
+   - Kết quả: `12x12x2`
 
-git clone https://github.com/<username>/cnn-from-scratch-c.git
-cd cnn-from-scratch-c
+4. **Convolutional Layer 2**  
+   - 4 filter kích thước `3x3`  
+   - Kết quả: `10x10x4`  
+   - Activation: **Sigmoid**
 
+5. **MaxPooling Layer 2**  
+   - Kích thước kernel: `2x2`  
+   - Kết quả: `5x5x4`
 
-Compile the code:
+6. **Flatten Layer**  
+   - Chuyển từ tensor `5x5x4` → vector `100 node`
 
-gcc src/*.c -o cnn -lm
+7. **Fully Connected Layer**  
+   - 100 node ẩn → 10 node đầu ra (ứng với 10 lớp số `0-9`)
 
+8. **Output Layer**  
+   - Hàm softmax để phân loại.
 
-Execute the program:
+---
 
+## 🛠️ Công nghệ sử dụng
+- Ngôn ngữ lập trình: **C**
+- Thư viện chuẩn: `<stdio.h>`, `<stdlib.h>`, `<math.h>`, `<string.h>`, `<time.h>`, `<stdint.h>`
+
+---
+
+## 🚀 Chạy thử dự án
+```bash
+# Biên dịch
+gcc main.c -o cnn -lm
+
+# Chạy chương trình
 ./cnn
-
-
-Expected Output:
-Displays loss and accuracy per epoch.
-Prints predictions for a few MNIST images.
-
-
-
-📊 Training Results
-The model was trained on the MNIST dataset with the following results:
-Loading MNIST from E:/CNN/train-images.idx3-ubyte, E:/CNN/train-labels.idx1-ubyte, E:/CNN/t10k-images.idx3-ubyte, E:/CNN/t10k-labels.idx1-ubyte ...
-Loaded.
-Epoch 1 - Loss: 0.3812 - Accuracy: 88.58%
-  -> Test - Loss: 0.1728 - Accuracy: 94.72%
-Epoch 2 - Loss: 0.1506 - Accuracy: 95.60%
-  -> Test - Loss: 0.1400 - Accuracy: 95.62%
-Epoch 3 - Loss: 0.1281 - Accuracy: 96.24%
-  -> Test - Loss: 0.1253 - Accuracy: 96.06%
-Epoch 4 - Loss: 0.1170 - Accuracy: 96.56%
-  -> Test - Loss: 0.1242 - Accuracy: 96.18%
-Epoch 5 - Loss: 0.1101 - Accuracy: 96.65%
-  -> Test - Loss: 0.1170 - Accuracy: 96.37%
-
-
-Achieves a test accuracy of up to 96.37% after 5 epochs.
-Training time is longer compared to Python/Frameworks due to the absence of GPU optimization.
-
-📚 Applied Knowledge
-
-Core concepts: Convolution, Pooling, Flatten, Fully Connected, Softmax.
-Forward propagation mechanics.
-Loss function: Cross-Entropy.
-Optimization technique: Stochastic Gradient Descent (SGD).
