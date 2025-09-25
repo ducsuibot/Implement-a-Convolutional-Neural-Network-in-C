@@ -8,7 +8,7 @@ Mục tiêu chính: xây dựng mô hình CNN cơ bản để nhận diện ản
 
 ## 🖼️ Sơ đồ kiến trúc CNN
 
-![CNN Architecture](cnn-architecture.jpeg)
+![CNN Architecture](Mô hình.png)
 
 
 
