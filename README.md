@@ -8,7 +8,7 @@ Mục tiêu chính: xây dựng mô hình CNN cơ bản để nhận diện ản
 
 ## 🖼️ Sơ đồ kiến trúc CNN
 
-![CNN Architecture](Mô hình.png)
+![CNN Architecture](https://github.com/ducsuibot/Implement-a-Convolutional-Neural-Network-in-C/blob/main/M%C3%B4%20h%C3%ACnh.png)
 
 
 
